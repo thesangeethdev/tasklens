@@ -1,0 +1,33 @@
+<idea-plugin>
+    <id>com.sangeeth.tasklens</id>
+    <name>TaskLens</name>
+    <version>1.0.0</version>
+    <vendor>Sangeeth</vendor>
+
+    <description><![CDATA[
+        A side-panel dashboard that scans and lists all TODO, FIXME, and HACK comments across your project.
+    ]]></description>
+
+    <idea-version since-build="232"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                id="TaskLens"
+                secondary="false"
+                anchor="right"
+                factoryClass="com.sangeeth.tasklens.ui.TodoToolWindowFactory"/>
+
+        <postStartupActivity implementation="com.sangeeth.tasklens.listener.ProjectOpenListener"/>
+    </extensions>
+
+    <actions>
+        <action
+                id="TaskLens.Refresh"
+                class="com.sangeeth.tasklens.action.RefreshTodoAction"
+                text="Refresh TaskLens"
+                description="Rescan project for TODO comments">
+            <add-to-group group-id="ToolbarRunGroup" anchor="after" relative-to-action="RunConfiguration"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift T"/>
+        </action>
+    </actions>
+</idea-plugin>
