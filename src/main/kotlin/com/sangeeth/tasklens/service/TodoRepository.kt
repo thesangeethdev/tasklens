@@ -13,4 +13,8 @@ object TodoRepository {
     fun getAll(): List<TodoItem> = todos.values.flatten().sortedBy { it.fileName }
 
     fun clear() = todos.clear()
+
+    fun clearFile(filePath: String) {
+        todos.remove(filePath)
+    }
 }
