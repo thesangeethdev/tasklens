@@ -126,9 +126,7 @@ TaskLens is built on the **IntelliJ Platform SDK** and follows a clean separatio
 
 ## 🎥 Demo
 
-<!-- Add a screen recording or GIF here showing live-->
-<!-- ![TaskLens Demo](docs/screenshots/tasklense.gif) -->
-
+![TaskLens Demo](docs/screenshots/tasklense.gif)
 
 ---
 
