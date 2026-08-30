@@ -1,14 +1,36 @@
 <idea-plugin>
     <id>com.sangeeth.tasklens</id>
-    <name>TaskLens</name>
+    <name>TaskLens Pro</name>
     <version>1.0.0</version>
-    <vendor>Sangeeth</vendor>
+    <vendor email="zansangeeth17@gmail.com" url="https://github.com/thesangeethdev/tasklens.git">Sangeeth</vendor>
 
     <description><![CDATA[
-        A side-panel dashboard that scans and lists all TODO, FIXME, and HACK comments across your project.
+        <p><b>TaskLens</b> is a developer productivity tool that surfaces all TODO, FIXME, and HACK comments scattered across your codebase into a single, searchable dashboard.</p>
+
+        <h3>Features:</h3>
+        <ul>
+            <li>Auto-scans your project for TODO, FIXME, and HACK comments</li>
+            <li>Real-time updates as you edit code</li>
+            <li>Filter by type, priority, and search text</li>
+            <li>Double-click to jump directly to the source line</li>
+            <li>Supports Kotlin, Java, and XML files</li>
+        </ul>
+
+        <p>Never lose track of a TODO again.</p>
     ]]></description>
 
+    <change-notes><![CDATA[
+        <p><b>1.0.0</b> — Initial release</p>
+        <ul>
+            <li>Project-wide TODO/FIXME/HACK scanning</li>
+            <li>Live updates on file changes</li>
+            <li>Priority parsing: TODO[HIGH], FIXME[LOW], etc.</li>
+        </ul>
+    ]]></change-notes>
+
     <idea-version since-build="232"/>
+
+    <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow
