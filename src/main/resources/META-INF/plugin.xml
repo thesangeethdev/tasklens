@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.sangeeth.tasklens</id>
     <name>TaskLens Pro</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <vendor email="zansangeeth17@gmail.com" url="https://github.com/thesangeethdev/tasklens.git">Sangeeth</vendor>
 
     <description><![CDATA[
