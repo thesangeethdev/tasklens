@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.sangeeth.tasklens</id>
     <name>TaskLens Pro</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <vendor email="zansangeeth17@gmail.com" url="https://github.com/thesangeethdev/tasklens">Sangeeth</vendor>
 
     <description><![CDATA[
@@ -20,6 +20,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
+    <p><b>1.0.3</b></p>
+    <ul>
+        <li>Bug fixes for to support IntelliJ 2023.2 — 2027.1</li>
+    </ul>
     <p><b>1.0.2</b></p>
     <ul>
         <li>Expanded IDE compatibility to support IntelliJ 2023.2 — 2027.1</li>

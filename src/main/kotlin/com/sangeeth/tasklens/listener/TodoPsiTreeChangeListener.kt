@@ -40,25 +40,29 @@ class TodoPsiTreeChangeListener(private val project: Project) : PsiTreeChangeLis
         val virtualFile = psiFile.virtualFile ?: return
         val filePath = virtualFile.path
 
-        // Check if a comment was involved
         val changed = event.child ?: event.parent ?: return
         val hasComment = changed is PsiComment
                 || event.oldChild is PsiComment
                 || event.newChild is PsiComment
-                || PsiTreeUtil.findChildrenOfType(changed, PsiComment::class.java).isNotEmpty()
 
-        if (!hasComment) return
+        if (!hasComment) {
+            val containsComment = ApplicationManager.getApplication().runReadAction<Boolean> {
+                PsiTreeUtil.findChildrenOfType(changed, PsiComment::class.java).isNotEmpty()
+            }
+            if (!containsComment) return
+        }
 
-        // Re-scan just this file
         TodoRepository.clearFile(filePath)
 
-        val comments = PsiTreeUtil.findChildrenOfType(psiFile, PsiComment::class.java)
-        for (comment in comments) {
-            val text = comment.text ?: continue
-            val document = psiFile.viewProvider.document
-            val lineNumber = document?.getLineNumber(comment.textOffset)?.plus(1) ?: 0
-            extractTodo(text, filePath, psiFile.name, lineNumber)?.let {
-                TodoRepository.add(it)
+        ApplicationManager.getApplication().runReadAction {
+            val comments = PsiTreeUtil.findChildrenOfType(psiFile, PsiComment::class.java)
+            for (comment in comments) {
+                val text = comment.text ?: continue
+                val document = psiFile.viewProvider.document
+                val lineNumber = document?.getLineNumber(comment.textOffset)?.plus(1) ?: 0
+                extractTodo(text, filePath, psiFile.name, lineNumber)?.let {
+                    TodoRepository.add(it)
+                }
             }
         }
 

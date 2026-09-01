@@ -1,5 +1,6 @@
 package com.sangeeth.tasklens.service
 
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
@@ -9,7 +10,6 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiComment
 import com.intellij.psi.PsiManager
 import com.intellij.psi.util.PsiTreeUtil
-import com.intellij.openapi.application.ApplicationManager
 import com.sangeeth.tasklens.model.Priority
 import com.sangeeth.tasklens.model.TodoItem
 import com.sangeeth.tasklens.model.TodoType
@@ -41,15 +41,17 @@ class TodoIndexService(private val project: Project) {
     }
 
     private fun scanFile(virtualFile: VirtualFile) {
-        val psiFile = PsiManager.getInstance(project).findFile(virtualFile) ?: return
-        val comments = PsiTreeUtil.findChildrenOfType(psiFile, PsiComment::class.java)
+        ApplicationManager.getApplication().runReadAction {
+            val psiFile = PsiManager.getInstance(project).findFile(virtualFile) ?: return@runReadAction
+            val comments = PsiTreeUtil.findChildrenOfType(psiFile, PsiComment::class.java)
 
-        for (comment in comments) {
-            val text = comment.text ?: continue
-            val document = psiFile.viewProvider.document
-            val lineNumber = document?.getLineNumber(comment.textOffset)?.plus(1) ?: 0
-            val todo = extractTodo(text, virtualFile.path, virtualFile.name, lineNumber) ?: continue
-            TodoRepository.add(todo)
+            for (comment in comments) {
+                val text = comment.text ?: continue
+                val document = psiFile.viewProvider.document
+                val lineNumber = document?.getLineNumber(comment.textOffset)?.plus(1) ?: 0
+                val todo = extractTodo(text, virtualFile.path, virtualFile.name, lineNumber) ?: continue
+                TodoRepository.add(todo)
+            }
         }
     }
 

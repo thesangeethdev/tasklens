@@ -182,7 +182,7 @@ See [LICENSE](LICENSE) for details.
 
 Built by **Sangeeth** as a portfolio project to explore the IntelliJ Platform SDK and developer productivity tooling.
 
-- GitHub: [@YOUR_USERNAME](https://github.com/YOUR_USERNAME)
-- Plugin: [TaskLens on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/YOUR_PLUGIN_ID)
+- GitHub: [@Sangeeth Amirthanathan](https://github.com/thesangeethdev)
+- Plugin: [TaskLens on JetBrains Marketplace](https://plugins.jetbrains.com/plugin/33943-tasklens-pro)
 
 > If TaskLens helped you stay organized, consider leaving a ⭐ on GitHub or a review on the Marketplace!
