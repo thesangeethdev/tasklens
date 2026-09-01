@@ -1,8 +1,8 @@
 <idea-plugin>
     <id>com.sangeeth.tasklens</id>
     <name>TaskLens Pro</name>
-    <version>1.0.1</version>
-    <vendor email="zansangeeth17@gmail.com" url="https://github.com/thesangeethdev/tasklens.git">Sangeeth</vendor>
+    <version>1.0.2</version>
+    <vendor email="zansangeeth17@gmail.com" url="https://github.com/thesangeethdev/tasklens">Sangeeth</vendor>
 
     <description><![CDATA[
         <p><b>TaskLens</b> is a developer productivity tool that surfaces all TODO, FIXME, and HACK comments scattered across your codebase into a single, searchable dashboard.</p>
@@ -20,13 +20,22 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p><b>1.0.0</b> — Initial release</p>
-        <ul>
-            <li>Project-wide TODO/FIXME/HACK scanning</li>
-            <li>Live updates on file changes</li>
-            <li>Priority parsing: TODO[HIGH], FIXME[LOW], etc.</li>
-        </ul>
-    ]]></change-notes>
+    <p><b>1.0.2</b></p>
+    <ul>
+        <li>Expanded IDE compatibility to support IntelliJ 2023.2 — 2027.1</li>
+    </ul>
+    <p><b>1.0.1</b></p>
+    <ul>
+        <li>Fixed real-time refresh on TODO comment edits</li>
+        <li>Improved file change detection for Kotlin and Java files</li>
+    </ul>
+    <p><b>1.0.0</b> — Initial release</p>
+    <ul>
+        <li>Project-wide TODO/FIXME/HACK scanning</li>
+        <li>Live updates on file changes</li>
+        <li>Priority parsing: TODO[HIGH], FIXME[LOW], etc.</li>
+    </ul>
+]]></change-notes>
 
     <idea-version since-build="232"/>
 
