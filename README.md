@@ -4,7 +4,7 @@
 
 <!-- Replace with your plugin banner or screenshot -->
 <!-- ![TaskLens Dashboard](docs/screenshots/dashboard.png) -->
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/YOUR_USERNAME/tasklens/releases)
+[![Version](https://img.shields.io/badge/version-1.0.3-blue)](https://github.com/YOUR_USERNAME/tasklens/releases)
 [![Platform](https://img.shields.io/badge/platform-IntelliJ%20IDEA%20%7C%20Android%20Studio-orange)](https://plugins.jetbrains.com)
 [![JetBrains Plugin](https://img.shields.io/badge/JetBrains%20Marketplace-Install-blue?logo=intellijidea)](https://plugins.jetbrains.com/plugin/33943)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green)](LICENSE)
